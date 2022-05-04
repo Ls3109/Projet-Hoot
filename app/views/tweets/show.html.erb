@@ -5,7 +5,7 @@
 <div>
   <%= link_to "Back to tweets", tweets_path %>
 
-  <%= if @user.__id__ == @tweet.user_id   %>
-  <%= button_to "Destroy this tweet", @tweet, method: :delete %>
-    <%= end %>
+
+    <%= button_to "Destroy this tweet", @tweet, method: :delete %>
+
 </div>
