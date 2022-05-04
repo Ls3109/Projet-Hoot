@@ -28,11 +28,12 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
          <p class="navbar-text">
+            <div class="navbar-text float-end">
         <% if user_signed_in? %>
           Logged in as: <br/>
            <button class="btn btn-sm btn-outline-secondary " type="button"> <strong> <%= current_user.email %></strong> </button>
-
-          <%= link_to ' Edit profile', edit_user_registration_path, :class => 'bi-person-circle ' %> |
+          
+          <%= link_to ' Edit profile', edit_user_registration_path, :class => 'bi-person-circle' %> |
           <%= link_to ' My tweets', user_profile_path(current_user.id), :class => "bi bi-pencil-square" %> |
           <%= link_to ' New tweet', new_tweet_path(@user), :class => "bi bi-pencil-square" %> |
           <%= link_to " Logout", destroy_user_session_path, method: :delete, :class => "bi bi-box-arrow-in-left"  %>
@@ -41,7 +42,7 @@
           <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
           <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
           <% end %>
-
+            </div>
           <%# <li class="nav-item active">
             <a class="nav-link" href="#">Homepage <span class="sr-only">(current)</span></a>
           </li>
@@ -59,10 +60,6 @@
           </li> %>
           </p>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
       </div>
     </nav>
   </div>
