@@ -34,6 +34,7 @@
           
           <%= link_to ' Edit profile', edit_user_registration_path, :class => 'bi-person-circle ' %> | 
           <%= link_to ' My tweets', user_profile_path(current_user.id), :class => "bi bi-pencil-square" %> |
+          <%= link_to ' New tweet', new_tweet_path(@user), :class => "bi bi-pencil-square" %> |
           <%= link_to " Logout", destroy_user_session_path, method: :delete, :class => "bi bi-box-arrow-in-left"  %>
           
           <% else %>
