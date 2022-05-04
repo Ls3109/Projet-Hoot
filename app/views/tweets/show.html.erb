@@ -1,11 +1,13 @@
-<p style="color: green"><%= notice %></p>
+<p style="color: green"><% notice %></p>
 
 <%= render "tweet" %>
 
 <div>
-  <%= link_to "Back to tweets", tweets_path %>
+  <%= link_to "Back to tweets", tweets_path,:class => "btn btn-secondary text-decoration-none text-light" %>
 
 
-    <%= button_to "Destroy this tweet", @tweet, method: :delete %>
+<br/> <br/>
+
+    <%= button_to "Destroy this tweet", @tweet, method: :delete,:class => "btn btn-danger text-decoration-none text-light" %>
 
 </div>

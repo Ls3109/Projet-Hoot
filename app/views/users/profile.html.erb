@@ -1,5 +1,8 @@
+<div class="jumbotron">
+  <h1 class="display-4">Profile</h1>
+  
 <div>
-<h1><%= @userinfo.email %></h1>
+<h1> Email: <%= @userinfo.email %></h1>
 <h2>You have tweeted <%= @usercount.size %> time(s).</h2>
 </div>
  
@@ -8,12 +11,12 @@
   <% if @userinfo == tweet.user %>
     <p>
       <tr>
-        <div  class="tweet">
+        <div  class="tweet card p-3">
           <h3 class="black"><td><%= link_to tweet.user.email, user_profile_path(tweet.user) %></td></h3>
           <h2><td><%= tweet.body %></td></h2>
-          <h3><td><%= tweet.created_at %></td></h3>
-          <span class="twitter-button">
-            <%= link_to "Delete", tweet_path(tweet.id), :confirm => "Are you sure?", :method => :delete %>
+          <h5><td><%= tweet.created_at %></td></h5>
+          <span class="twitter-button">  
+            <%= button_to "Delete", tweet_path(tweet.id), :confirm => "Are you sure?", :method => :delete, class: "btn btn-danger" %> 
           </span>
         </div>
       </tr>
@@ -21,3 +24,5 @@
   <% end %>
 <% end %>
 </div>
+</div>
+
