@@ -1,9 +1,9 @@
-<p style="color: green"><%= notice %></p>
+<p style="color:green"><%= notice %></p>
 
 <%= render "user" %>
 
 <div>
   <%= link_to "Back to users", @user, method: :delete %>
 
-  <%= button_to "Destroy this user", @user, method: :delete %>
+  <%= button_to "Do you really want to disconnect?", @user, method: :delete %>
 </div>
