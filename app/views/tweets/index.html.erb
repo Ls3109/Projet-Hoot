@@ -1,25 +1,42 @@
-<div>
+<br/>
+
+<div class="jumbotron">
+<div class= "card">
+
+ <div class= "card-body" >
   <% @tweets.reverse.each do |tweet| %>
     <tr>
       <h1><%= link_to tweet.user.email, user_profile_path(tweet.user) %></h1>
       <h2><td><%= tweet.body %></td></h2>
-      <h3><td><%= tweet.created_at %></td></h3>
+      <h5><td><%= tweet.created_at %></td></h5>
     </tr>
+
+    <br/>
     <% if current_user == tweet.user %>
-        <%= link_to "Delete", tweet_path(tweet.id), :confirm => "Are you sure?", :method => :delete %>
+        <%= link_to "Delete", tweet_path(tweet.id), :confirm => "Are you sure?", :method => :delete, class:"btn btn-danger  " %>
+    
     <% end %>
     <% if current_user.liked? tweet %>
     <%= link_to dislike_tweet_path(tweet.id), method: :put do %>
       <%= image_tag("like.png", :alt => "Like", height: 18, width: 20) %>
       <%= tweet.get_likes.size %>
       <% end %>
+
       <% else %>
       <%= link_to like_tweet_path(tweet), method: :put do %>
           <%= image_tag("dislike.png", :alt => "Like", height: 18, width: 20) %>
           <%= tweet.get_likes.size %>
         <% end %>
+        <br/>  <br/>
+        <hr>
     <% end %>
   <% end %>    
-</div>
  
-<%= link_to 'New Tweet', new_tweet_path(@user) %>
+</div>
+</div>
+ <br/>
+  
+<button class= "btn btn-dark"> <i class="bi bi-pencil-square"></i> <%= link_to 'New Tweet', new_tweet_path(@user) %> </button>
+</div>
+
+
