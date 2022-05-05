@@ -13,7 +13,13 @@
       <tr>
         <div  class="tweet card p-3">
           <h3 class="black"><td><%= link_to tweet.user.email, user_profile_path(tweet.user) %></td></h3>
-          <h2><td><%= tweet.body %></td></h2>
+          <h2> 
+          <% if current_user.avatar.present? %>
+          <%= image_tag(current_user.avatar.variant(resize_to_fill: [50, 50]), class: "rounded-circle") %>
+          <% else %>
+          <img alt="image" class="rounded-circle" src="/assets/default_avatar_small.jpg">
+          <% end %>
+          <td><%= tweet.body %></td></h2>
           <h5><td><%= tweet.created_at %></td></h5>
           <span class="twitter-button">  
             <%= button_to "Delete", tweet_path(tweet.id), :confirm => "Are you sure?", :method => :delete, class: "btn btn-danger" %> 

@@ -1,5 +1,12 @@
 <div class="jumbotron">
-  <h1 class="display-4">New tweet</h1>
+ 
+          <% if current_user.avatar.present? %>
+          <%= image_tag(current_user.avatar.variant(resize_to_fill: [100, 100]), class: "rounded-circle") %>
+          <% else %>
+          <img alt="image" class="rounded-circle" src="/assets/default_avatar_small.jpg">
+          <% end %>
+          <br/>  <br/>
+           <h1 class="display-4"> New tweet</h1>
   <%= form_with(model: tweet, local: true) do |form| %>
   <% if tweet.errors.any? %>
     <div id="error_explanation">
@@ -14,7 +21,9 @@
   <% end %>
  
   <p> <p> A penny for your thoughts ? </p>
+  
     <% form.label :body%>
+    
     <%= form.text_area :body, :id => 'body' %>
   </p>
  

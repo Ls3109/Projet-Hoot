@@ -32,12 +32,17 @@
         <% if user_signed_in? %>
           Logged in as: <br/>
            <button class="btn btn-sm btn-outline-secondary " type="button"> <strong> <%= current_user.email %></strong> </button>
+
+          <% if current_user.avatar.present? %>
+          <%= image_tag(current_user.avatar.variant(resize_to_fill: [50, 50]), class: "rounded-circle") %>
+          <% else %>
+          <img alt="image" class="rounded-circle" src="/assets/default_avatar_small.jpg">
+          <% end %>
           
-          <%= link_to ' Edit profile', edit_user_registration_path, :class => 'bi-person-circle' %> |
+          <%= link_to ' Edit profile', edit_user_registration_path %> |
           <%= link_to ' My tweets', user_profile_path(current_user.id), :class => "bi bi-blockquote-right" %> |
           <%= link_to ' New tweet', new_tweet_path(@user), :class => "bi bi-pencil-square" %> |
           <%= link_to " Logout", destroy_user_session_path, method: :delete, :class => "bi bi-box-arrow-in-left"  %>
-
           <% else %>
           <%= link_to " Sign up", new_user_registration_path, :class => "bi bi-person-plus-fill"  %> |
           <%= link_to " Login", new_user_session_path, :class => "bi bi-box-arrow-in-left"  %>

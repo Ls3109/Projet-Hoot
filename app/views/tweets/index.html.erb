@@ -9,6 +9,12 @@
   <% @tweets.reverse.each do |tweet| %>
     <tr>
       <h1><%= link_to tweet.user.email, user_profile_path(tweet.user) %></h1>
+      
+          <% if tweet.user.avatar.present? %>
+          <%= image_tag(tweet.user.avatar.variant(resize_to_fill: [50, 50]), class: "rounded-circle") %>
+          <% else %>
+          <%= image_tag("default_avatar_small.jpg", width: 50, :style => "border-radius: 100px") %>
+          <% end %>
       <h2><td><%= tweet.body %></td></h2>
       <h5><td><%= tweet.created_at %></td></h5>
     </tr>

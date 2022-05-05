@@ -4,6 +4,17 @@
 <div class="jumbotron">
   <h1 class="display-4">Edit User</h1>
   <br/>
+
+  
+  <!--Avatar Upload Field-->
+  <div class="form-group">
+  <label class="col-sm-4 col-form-label">Avatar:
+  <% if current_user.avatar.present? %><br />Current: <%= current_user.avatar.filename.to_s %><% end %>
+  </label>
+  <div class="col-sm-8"><%= f.file_field :avatar, class: "form-control" %></div>
+  </div>
+  <!--Avatar Upload Field-->
+
   <div class="field form-group">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
@@ -35,6 +46,7 @@
     <%= f.submit "Update", class:"btn btn-secondary" %>
 
   </div>
+
 <% end %>
 
 <br/>
